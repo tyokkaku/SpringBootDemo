@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <title>color</title>
+</head>
+<body>
+  <p>ここには選択した色の商品が並びます</p>
+  <table class="table table-striped" th:if="${items.size()}">
+    <thead>
+        <tr>
+          <th style="width: 10%">ID</th>
+          <th style="width: 30%">商品名</th>
+          <th style="width: 10%">価格</th>
+          <th style="width: 10%">ベンダー</th>
+          <th style="width: 10%">カラー</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="item:${items}" th:object="${item}">
+          <td th:text="*{id}"></td>
+          <td th:text="*{name}"></td>
+          <td th:text="*{price}"></td>
+          <td th:text="*{vendor}"></td>
+          <td th:text="*{color}"></td>
+        </tr>
+    </tbody>
+  </table>
+</body>
+</html>
